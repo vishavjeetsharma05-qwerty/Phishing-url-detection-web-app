@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detector | Cyber Security</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-container"></div>
+
+    <div class="app-container">
+        <!-- Theme Switcher -->
+        <div class="theme-switcher">
+            <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-sun light-icon"></i>
+                <i class="fas fa-moon dark-icon"></i>
+            </button>
+        </div>
+
+        <!-- Main Card -->
+        <main class="glass-panel">
+            <header class="app-header">
+                <div class="shield-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1>Phishing URL Detector</h1>
+                <p>Check a URL and find out if it is Safe or Suspicious</p>
+            </header>
+
+            <section class="input-section">
+                <form id="analyzeForm" class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-link input-icon"></i>
+                        <input type="text" id="urlInput" placeholder="Enter URL here (e.g., example.com)" required autocomplete="off">
+                    </div>
+                    <button type="submit" id="checkBtn" class="btn-primary">
+                        <span>Check</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading-container hidden">
+                <div class="spinner"></div>
+                <p>Analyzing URL...</p>
+            </div>
+
+            <!-- Result Section -->
+            <section id="resultSection" class="result-section hidden">
+                <h2 class="result-title">Result</h2>
+                <div id="statusBadge" class="status-badge">
+                    <!-- Status injected here by JS -->
+                </div>
+                <div id="resultMessage" class="result-message">
+                    <!-- Message injected here by JS -->
+                </div>
+                <ul id="reasonsList" class="reasons-list">
+                    <!-- Reasons injected here by JS -->
+                </ul>
+            </section>
+        </main>
+
+        <!-- History Panel -->
+        <aside class="glass-panel history-panel">
+            <div class="history-header">
+                <h3><i class="fas fa-history"></i> Recent Checks</h3>
+                <button id="clearHistoryBtn" class="btn-text">Clear</button>
+            </div>
+            <ul id="historyList" class="history-list">
+                <!-- History items injected here by JS -->
+            </ul>
+        </aside>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
